@@ -1,64 +1,73 @@
 <template>
   <div class="fortune">
     <ul>
-      <li><a class="active" href="#host">主页</a></li>
+      <li><a href="#host" @click="back">主页</a></li>
       <li><a href="#fortune">运势</a></li>
-      <li><a href="#news">新闻</a></li>
-      <li><a href="#about">关于</a></li>
-      <li style="float: right; padding: 6px 8px 0 0"><input type=button value="返回" onclick=history.go(-1)></li>
+      <li><a href="https://www.astrology.com/">新闻</a></li>
+      <li><a href="#about" @click="zo">关于</a></li>
+      <li style="float: right; padding: 6px 8px 0 0"><input type=button value="返回" @click="back" onclick=history.go(-1)></li>
     </ul>
     <div class="head">
         <div style="padding-top: 20px; padding-bottom: 10px; padding-inline-start: 8px">
             <h2 style="float: left; margin-block-start: 5px">查看运势</h2>
         </div>
         <div class="time">
-            <input type="button" value="今日" style="border-right: 1px solid #7f9eb2;">
-            <input type="button" value="明日" style="border-right: 1px solid #7f9eb2">
-            <input type="button" value="本周" style="border-right: 1px solid #7f9eb2">
-            <input type="button" value="本月" style="border-right: 1px solid #7f9eb2">
-            <input type="button" value="本年" style="border-right: 0">
+            <input v-on:click="reverseMessage1(msgg)" type="button" value="今日" style="border-right: 1px solid #7f9eb2;">
+            <input v-on:click="reverseMessage2(msgg)" type="button" value="明日" style="border-right: 1px solid #7f9eb2">
+            <input v-on:click="reverseMessage3(msgg)" type="button" value="本周" style="border-right: 1px solid #7f9eb2">
+            <input v-on:click="reverseMessage4(msgg)" type="button" value="本月" style="border-right: 1px solid #7f9eb2">
+            <input v-on:click="reverseMessage5(msgg)" type="button" value="本年" style="border-right: 0">
         </div>
     </div>
     <div class="content">
-        <div id="title">水瓶座今日运势</div>
-        <p class="date">2019年07月10日</p>
+        <div id="title">{{msgg}}{{mss}}</div>
+        <p class="date">{{datetime}}</p>
         <div class="data">
-            <img class="img" src="./assets/shuiping.png">
+            <img class="img" v-show="msgg =='水瓶座'" src="./assets/shuiping.png"/>
+            <img class="img" v-show="msgg =='双鱼座'" src="./assets/shuangyu.png"/>
+            <img class="img" v-show="msgg =='白羊座'" src="./assets/baiyang.png"/>
+            <img class="img" v-show="msgg =='金牛座'" src="./assets/jinniu.png"/>
+            <img class="img" v-show="msgg =='双子座'" src="./assets/shuangzi.png"/>
+            <img class="img" v-show="msgg =='巨蟹座'" src="./assets/juxie.png"/>
+            <img class="img" v-show="msgg =='狮子座'" src="./assets/shizi.png"/>
+            <img class="img" v-show="msgg =='处女座'" src="./assets/chunv.png"/>
+            <img class="img" v-show="msgg =='天秤座'" src="./assets/tiancheng.png"/>
+            <img class="img" v-show="msgg =='天蝎座'" src="./assets/tianxie.png"/>
+            <img class="img" v-show="msgg =='射手座'" src="./assets/sheshou.png"/>
+            <img class="img" v-show="msgg =='摩羯座'" src="./assets/mojie.png"/>
             <div class="histogram">
                 <div>
                     <b>综合</b>
-                    <p><span style="width: 80%"></span></p>
-                    <strong>80%</strong>
+                    <p><span style="width:80%"></span></p>
+                    <strong>{{all}}</strong>
                 </div>
                 <div>
                     <b>健康</b>
-                    <p><span style="width: 70%"></span></p>
-                    <strong>70%</strong>
+                    <p><span style="width:95%"></span></p>
+                    <strong>{{health}}</strong>
                 </div>
                 <div>
                     <b>爱情</b>
-                    <p><span style="width: 60%"></span></p>
-                    <strong>60%</strong>
+                    <p><span style="width:64%"></span></p>
+                    <strong>{{love}}</strong>
                 </div>
                 <div>
                     <b>财富</b>
-                    <p><span style="width: 90%"></span></p>
-                    <strong>90%</strong>
+                    <p><span style="width:87%"></span></p>
+                    <strong>{{money}}</strong>
                 </div>
                 <div>
                     <b>工作</b>
-                    <p><span style="width: 75%"></span></p>
-                    <strong>75%</strong>
+                    <p><span style="width:51%"></span></p>
+                    <strong>{{work}}</strong>
                 </div>
             </div>
         </div>
-        <div id="summary">有些思考的小漩涡，可能让你忽然的放空，生活中许多的细节让你感触良多，五味杂陈，
-        常常有时候就慢动作定格，想法在某处冻结停留，陷入一阵自我对话的沉思之中，这个时候你不喜欢被打扰
-        或询问，也不想让某些想法曝光，个性变得有些隐晦。</div>
+        <div id="summary">{{summary}}</div>
         <div class="circle">
-            <div>古铜<p>幸运色</p></div>
-            <div>8<p>幸运数字</p></div>
-            <div>天秤座<p>速配星座</p></div>
+            <div>{{color}}<p>幸运色</p></div>
+            <div>{{number}}<p>幸运数字</p></div>
+            <div>{{QFriend}}<p>速配星座</p></div>
         </div>
     </div>
     <div id="footer"><h3 style="font-weight: normal; font-size: 14px">@copyright 星座资讯</h3></div>
@@ -70,8 +79,278 @@ export default {
   name: 'Fortune',
   data () {
     return {
-      msg: '欢迎来到Astrology'
+      msg: '欢迎来到Astrology',
+      msgg:'',
+      mss:'',
+      md1:'今日运势',
+      md2:'明日运势',
+      md3:'本周运势',
+      md4:'本月运势',
+      md5:'本年运势',
+      all:'0%',
+      love:'0%',
+      health:'0%',
+      money:'0%',
+      work:'0%',
+      summary:'',
+      color:'',
+      number:'',
+      QFriend:'',
+      datetime:''
     }
+  },
+  created(){
+    this.getParams()
+},
+  methods:{
+  	back(){
+  		this.$router.push('/Host')
+    },
+    zo(){
+  		this.$router.push('/about')
+  	},
+    getParams(){
+        var routerParams=this.$route. query.msgg
+        this.msgg=routerParams
+    },
+    getWidthHealth: function(){
+        return this.health;
+        console.log(this.health);
+    },
+    getWidthAll: function(){
+        return this.all;
+    },
+    getWidthLove: function(){
+        return this.love;
+    },
+    getWidthMoney: function(){
+        return this.money.split('');
+    },
+    getWidthWork: function(){
+        return this.work;
+    },
+    reverseMessage1: function(msggg) {
+       this.mss= this.md1
+       let url = this.HOST;
+       this.$axios.get(url,{
+         params:{
+         consName:msggg,
+         type:'today',
+         key:'1c69f366b491fbaa0b56ee631ffc5ad7'
+         }
+        }
+       )
+       .then(res =>{
+         this.summary = '';
+         console.log(res);
+         this.love = res.data.love;
+         this.all = res.data.all;
+         this.health = res.data.health;
+         this.money = res.data.money;
+         this.work = res.data.work;
+         this.QFriend = res.data.QFriend;
+         this.number = res.data.number;
+         this.summary = res.data.summary;
+         this.color = res.data.color;
+         this.datetime = res.data.datetime;
+       })
+       .catch(error =>{
+         console.log(error);
+       })
+
+    },
+
+    reverseMessage2: function(msggg) {
+       this.mss=this.md2
+       let url = this.HOST;
+       this.$axios.get(url,{
+         params:{
+         consName:msggg,
+         type:'tomorrow',
+         key:'1c69f366b491fbaa0b56ee631ffc5ad7'
+         }
+        }
+       )
+       .then(res =>{
+         this.summary = '';
+         console.log(res);
+         this.love = res.data.love;
+         this.all = res.data.all;
+         this.health = res.data.health;
+         this.money = res.data.money;
+         this.work = res.data.work;
+         this.QFriend = res.data.QFriend;
+         this.number = res.data.number;
+         this.summary = res.data.summary;
+         this.color = res.data.color;
+         this.datetime = res.data.datetime;
+       })
+       .catch(error =>{
+         console.log(error);
+       })
+    },
+
+    reverseMessage3: function(msggg) {
+       this.mss= this.md3
+       let url = this.HOST;
+       this.$axios.get(url,{
+         params:{
+         consName:msggg,
+         type:'today',
+         key:'1c69f366b491fbaa0b56ee631ffc5ad7'
+         }
+        }
+       )
+       .then(res =>{
+         console.log(res);
+         this.love = res.data.love;
+         this.all = res.data.all;
+         this.health = res.data.health;
+         this.money = res.data.money;
+         this.work = res.data.work;
+         this.QFriend = res.data.QFriend;
+         this.number = res.data.number;
+         this.color = res.data.color;
+       })
+       .catch(error =>{
+         console.log(error);
+       })
+       this.$axios.get(url,{
+         params:{
+         consName:msggg,
+         type:'week',
+         key:'1c69f366b491fbaa0b56ee631ffc5ad7'
+         }
+        }
+       )
+       .then(res =>{
+         this.summary = '';
+         console.log(res);
+         this.datetime = res.data.date;
+         if(res.data.health){
+         this.summary += res.data.health;}
+         if(res.data.job){
+         this.summary += res.data.job;}
+         if(res.data.love){
+         this.summary += res.data.love;}
+         if(res.data.money){
+         this.summary += res.data.money;}
+         if(res.data.work){
+         this.summary += res.data.work;}
+       })
+       .catch(error =>{
+         console.log(error);
+       })
+    },
+
+    reverseMessage4: function(msggg) {
+       this.mss= this.md4
+       let url = this.HOST;
+       this.$axios.get(url,{
+         params:{
+         consName:msggg,
+         type:'today',
+         key:'1c69f366b491fbaa0b56ee631ffc5ad7'
+         }
+        }
+       )
+       .then(res =>{
+         console.log(res);
+         this.love = res.data.love;
+         this.all = res.data.all;
+         this.health = res.data.health;
+         this.money = res.data.money;
+         this.work = res.data.work;
+         this.QFriend = res.data.QFriend;
+         this.number = res.data.number;
+         this.color = res.data.color;
+       })
+       .catch(error =>{
+         console.log(error);
+       })
+       this.$axios.get(url,{
+         params:{
+         consName:msggg,
+         type:'month',
+         key:'1c69f366b491fbaa0b56ee631ffc5ad7'
+         }
+        }
+       )
+       .then(res =>{
+         this.summary = '';
+         console.log(res);
+         this.datetime = res.data.date;
+         if(res.data.all){
+         this.summary += res.data.all;}
+         if(res.data.health){
+         this.summary += res.health;}
+         if(res.data.love){
+         this.summary += res.data.love;}
+         if(res.data.money){
+         this.summary += res.data.money;}
+         if(res.data.work){
+         this.summary += res.data.work;}
+       })
+       .catch(error =>{
+         console.log(error);
+       })
+    },
+
+    reverseMessage5: function(msggg) {
+       this.mss=this.md5
+       let url = this.HOST;
+       this.$axios.get(url,{
+         params:{
+         consName:msggg,
+         type:'today',
+         key:'1c69f366b491fbaa0b56ee631ffc5ad7'
+         }
+        }
+       )
+       .then(res =>{
+         console.log(res);
+         this.love = res.data.love;
+         this.all = res.data.all;
+         this.health = res.data.health;
+         this.money = res.data.money;
+         this.work = res.data.work;
+         this.QFriend = res.data.QFriend;
+         this.number = res.data.number;
+         this.color = res.data.color;
+       })
+       .catch(error =>{
+         console.log(error);
+       })
+       this.$axios.get(url,{
+         params:{
+         consName:msggg,
+         type:'year',
+         key:'1c69f366b491fbaa0b56ee631ffc5ad7'
+         }
+        }
+       )
+       .then(res =>{
+         this.summary = '';
+         console.log(res);
+         this.datetime = res.data.date;
+         if(res.data.mima.info){
+         this.summary += res.data.mima.info;}
+         if(res.data.mima.text){
+         this.summary += res.data.mima.text;}
+         if(res.data.love){
+         this.summary += res.data.love;}
+         if(res.data.finance){
+         this.summary += res.data.finance;}
+         if(res.data.career){
+         this.summary += res.data.career;}
+       })
+       .catch(error =>{
+         console.log(error);
+       })
+    }
+  },
+  watch:{
+      '$route':'getParams'
   }
 }
 </script>
@@ -216,11 +495,62 @@ li input {
     position: absolute;
     left: 0;
     top: 0;
+    width: 100%;
     height: 100%;
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;
     border-radius: 4px;
 }
+.histogram .health {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: expression(getWidthHealth());
+    height: 100%;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+} 
+.histogram .love {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: expression(getWidthLove());
+    height: 100%;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+} 
+.histogram .money {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: expression(getWidthMoney());
+    height: 100%;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+} 
+.histogram .all {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: expression(getWidthAll());
+    height: 100%;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+} 
+.histogram .work {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: expression(getWidthWork());
+    height: 100%;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+} 
 .histogram div:nth-child(1) span {
     background-color: #ff7473;
 }

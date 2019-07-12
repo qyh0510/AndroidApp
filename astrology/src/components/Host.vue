@@ -1,75 +1,75 @@
 <template>
   <div class="host">
     <ul>
-      <li><a class="active" href="#host">主页</a></li>
-      <li><a href="#fortune">运势</a></li>
-      <li><a href="#news">新闻</a></li>
-      <li><a href="#about">关于</a></li>
-      <li style="float: right"><a href="#search">查生日</a></li>
+      <li><a href="#host">主页</a></li>
+      <li><a href="#fortune" @click="go">运势</a></li>
+      <li><a href="https://www.astrology.com/">新闻</a></li>
+      <li><a href="#about" @click="zo">关于</a></li>
+      <li style="float: right"><a href="#search" @click="to">查生日</a></li>
     </ul>
     <div id="title"><h2>十二星座运势</h2></div>
     <div id="content">
       <div id="content-line">
-        <a href="#shuiping" id="box" @click="go" style="border-left: 1px solid #e8e8e8">
+        <a href="#shuiping" id="box" @click="ao" style="border-left: 1px solid #e8e8e8">
           <img src="./assets/shuiping.png" width=100px height=100px>
-          <p @click="go">水瓶</p>
+          <p>水瓶</p>
           <p>1.20-2.18</p>
         </a>
-        <a href="#shuangyu" id="box" @click="go">
+        <a href="#shuangyu" id="box" @click="bo">
           <img src="./assets/shuangyu.png" width=100px height=100px>
           <p>双鱼</p>
           <p>2.19-3.20</p>
         </a>
-        <a href="#baiyang" id="box" @click="go">
+        <a href="#baiyang" id="box" @click="co">
           <img src="./assets/baiyang.png" width=100px height=100px>
           <p>白羊</p>
           <p>3.21-4.19</p>
         </a>
-        <a href="#jinniu" id="box" @click="go">
+        <a href="#jinniu" id="box" @click="xo">
           <img src="./assets/jinniu.png" width=100px height=100px>
           <p>金牛</p>
           <p>4.20-5.20</p>
         </a>
       </div>
       <div id="content-line">
-        <a href="#shuangzi" id="box" @click="go" style="border-left: 1px solid #e8e8e8">
+        <a href="#shuangzi" id="box" @click="eo" style="border-left: 1px solid #e8e8e8">
           <img src="./assets/shuangzi.png" width=100px height=100px>
           <p>双子</p>
           <p>5.21-6.20</p>
         </a>
-        <a href="#juxie" id="box" @click="go">
+        <a href="#juxie" id="box" @click="fo">
           <img src="./assets/juxie.png" width=100px height=100px>
           <p>巨蟹</p>
           <p>6.21-7.22</p>
         </a>
-        <a href="#shizi" id="box" @click="go">
+        <a href="#shizi" id="box" @click="yo">
           <img src="./assets/shizi.png" width=100px height=100px>
           <p>狮子</p>
           <p>7.23-8.22</p>
         </a>
-        <a href="#chunv" id="box" @click="go">
+        <a href="#chunv" id="box" @click="ho">
           <img src="./assets/chunv.png" width=100px height=100px>
           <p>处女</p>
           <p>8.23-9.22</p>
         </a>
       </div>
       <div id="content-line">
-        <a href="#tiancheng" id="box" @click="go" style="border-left: 1px solid #e8e8e8">
+        <a href="#tiancheng" id="box" @click="io" style="border-left: 1px solid #e8e8e8">
           <img src="./assets/tiancheng.png" width=100px height=100px>
           <p>天秤</p>
           <p>9.23-10.22</p>
         </a>
-        <a href="#tianxie" id="box" @click="go">
+        <a href="#tianxie" id="box" @click="jo">
           <img src="./assets/tianxie.png" width=100px height=100px>
           <p>天蝎</p>
           <p>10.23-11.21</p>
         </a>
-        <a href="#sheshou" id="box" @click="go">
+        <a href="#sheshou" id="box" @click="ko">
           <img src="./assets/sheshou.png" width=100px height=100px>
           <p>射手</p>
           <p>11.22-12.21</p>
         </a>
-        <a href="#mojie" id="box" @click="go">
+        <a href="#mojie" id="box" @click="lo">
           <img src="./assets/mojie.png" width=100px height=100px>
           <p>摩羯</p>
           <p>12.22-1.19</p>
@@ -89,6 +89,48 @@ export default {
     }
   },
   methods:{
+   ao(){
+    this.$router.push({path:'/Fortune', query:{msgg:'水瓶座'}});
+   },
+   bo(){
+    this.$router.push({path:'/Fortune', query:{msgg:'双鱼座'}});
+   },
+   co(){
+    this.$router.push({path:'/Fortune', query:{msgg:'白羊座'}});
+   },
+   xo(){
+    this.$router.push({path:'/Fortune', query:{msgg:'金牛座'}});
+   },
+   eo(){
+    this.$router.push({path:'/Fortune', query:{msgg:'双子座'}});
+   },
+   fo(){
+    this.$router.push({path:'/Fortune', query:{msgg:'巨蟹座'}});
+   },
+   yo(){
+    this.$router.push({path:'/Fortune', query:{msgg:'狮子座'}});
+   },
+   ho(){
+    this.$router.push({path:'/Fortune', query:{msgg:'处女座'}});
+   },
+   io(){
+    this.$router.push({path:'/Fortune', query:{msgg:'天秤座'}});
+   },
+   jo(){
+    this.$router.push({path:'/Fortune', query:{msgg:'天蝎座'}});
+   },
+   ko(){
+    this.$router.push({path:'/Fortune', query:{msgg:'射手座'}});
+   },
+   lo(){
+    this.$router.push({path:'/Fortune', query:{msgg:'摩羯座'}});
+   },
+   to(){
+    this.$router.push('/search')
+   },
+   zo(){
+  		this.$router.push('/about')
+  	},
    go(){
     this.$router.push('/Fortune')
    }

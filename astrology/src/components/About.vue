@@ -1,11 +1,11 @@
 <template>
   <div class="about">
     <ul>
-      <li><a class="active" href="#host">主页</a></li>
-      <li><a href="#fortune">运势</a></li>
-      <li><a href="#news">新闻</a></li>
+      <li><a href="#host" @click="go">主页</a></li>
+      <li><a href="#fortune" @click="to">运势</a></li>
+      <li><a href="https://www.astrology.com/">新闻</a></li>
       <li><a href="#about">关于</a></li>
-      <li style="float: right; padding: 6px 8px 0 0"><input type=button value="返回" onclick=history.go(-1)></li>
+      <li style="float: right; padding: 6px 8px 0 0"><input type=button value="返回"  @click="back" onclick=history.go(-1)></li>
     </ul>
     <div class="head">
         <div style="padding-top: 20px; padding-bottom: 10px; padding-inline-start: 8px">
@@ -30,6 +30,17 @@ export default {
     return {
       msg: '欢迎来到Astrology'
     }
+  },
+  methods:{
+   go(){
+    this.$router.push('/Host')
+   },
+   back(){
+  		this.$router.push('/Host')
+    },
+   to(){
+    this.$router.push('/Fortune')
+   }
   }
 }
 </script>

@@ -10,7 +10,15 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      "/api":{
+        target:"http://web.juhe.cn:8080/constellation/getAll",
+        changeOrigin:true,
+        pathRewrite:{
+          "^/api":""
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
