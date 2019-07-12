@@ -397,7 +397,7 @@ li input {
     position: relative;
     margin: 0 auto;
     padding: 0 auto;
-    max-width: 900px;
+    max-width: 600px;
 }
 .head div {
     position: relative;
@@ -432,7 +432,7 @@ li input {
     position: relative;
     margin: 0 auto;
     padding: 0 auto;
-    max-width: 900px;
+    max-width: 600px;
     background: #fff url(./assets/star.jpeg) top center/100%;
     padding-top: 40px;
 }
@@ -459,10 +459,10 @@ li input {
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    left: 30px;
+    left: 3%;
     top: 50px;
-    width: 150px;
-    height: 150px;
+    width: 20%;
+    height: 50%;
 }
 .histogram {
     padding-top: 10px;
@@ -471,10 +471,10 @@ li input {
     position: relative;
     height: 28px;
     color: #fff;
-    padding: 0 46px 0 180px;
+    padding: 0 46px 0 20%;
 }
 .histogram b {
-    left: 120px;
+    left: 3%;
     position: absolute;
     height: 28px;
     line-height: 28px;
@@ -585,31 +585,31 @@ li input {
 }
 .circle {
     overflow: hidden;
-    height: 100px;
+    height: 60px;
     position: relative;
     text-align: center;
     padding: 10px 0;
 }
 .circle div {
     display: inline-block;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border: 2px solid #79bd9a;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     border-radius: 50%;
-    margin: 0 100px;
-    line-height: 50px;
+    margin: 0 5%;
+    line-height: 80px;
     position: relative;
     color: #79bd9a;
-    font-size: 16px;
+    font-size: 14px;
 }
 .circle p {
     position: absolute;
-    width: 80px;
+    width: 60px;
     border-radius: 0 0 38px 38px;
-    height: 40px;
-    line-height: 36px;
+    height: 30px;
+    line-height: 26px;
     color: #fff;
     background-color: #79bd9a;
     bottom: 0;
